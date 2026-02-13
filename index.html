@@ -28,6 +28,20 @@ body {
     100% { transform: translate(-50%, -50%) rotate(0deg); }
 }
 
+@media (max-width: 500px) {
+    .letter-container.show {
+        transform: translate(-50%, -65%) scale(0.9);
+    }
+
+    .letter p {
+        font-size: 0.85rem;
+    }
+
+    .sticker {
+        font-size: 1.5rem;
+    }
+}
+
 .scene {
     position: relative;
     width: 100%;
@@ -39,8 +53,10 @@ body {
 
 .envelope {
     position: absolute;
-    width: 250px;
-    height: 170px;
+    width: 40vw;
+    height: calc(40vw * 0.6875);
+    max-width: 320px;
+    max-height: 220px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -93,8 +109,10 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.3);
-    width: 300px;
-    height: 420px;
+    width: 80vw;
+    height: calc(80vw * 1.4);
+    max-width: 300px;
+    max-height: 420px;
     opacity: 0;
     transition:
         transform 1s ease,
