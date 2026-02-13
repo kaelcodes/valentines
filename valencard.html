@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Valentine’s Card 💖</title>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .scene {
+        perspective: 1500px;
+    }
+
+    .card {
+        width: 320px;
+        height: 420px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1.3s ease;
+        cursor: pointer;
+    }
+
+    .card.open {
+        transform: rotateY(-180deg) scale(1.4);
+    }
+
+    .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        backface-visibility: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Front */
+    .card-front {
+        background: linear-gradient(135deg, #ff4e78, #ff85a2);
+        color: white;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-front h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .heart {
+        font-size: 3rem;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    /* Inside */
+    .card-inside {
+        background: #fff0f5;
+        transform: rotateY(180deg);
+        padding: 25px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .letter {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        height: 100%;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        position: relative;
+        text-align: center;
+    }
+
+    .letter h2 {
+        color: #ff4e78;
+        margin-bottom: 10px;
+    }
+
+    .letter p {
+        color: #444;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    /* Stickers */
+    .sticker {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.9;
+    }
+
+    .flower1 { top: 10px; left: 10px; }
+    .flower2 { bottom: 15px; right: 15px; }
+    .heart1 { top: 50px; right: 20px; }
+    .heart2 { bottom: 60px; left: 20px; }
+
+</style>
+</head>
+<body>
+
+<div class="scene">
+    <div class="card" id="card">
+        <!-- FRONT -->
+        <div class="card-face card-front">
+            <h1>Happy Valentine’s</h1>
+            <div class="heart">💖</div>
+            <p>Click to open</p>
+        </div>
+
+        <!-- INSIDE -->
+        <div class="card-face card-inside">
+            <div class="letter">
+                <div class="sticker flower1">🌸</div>
+                <div class="sticker flower2">🌷</div>
+                <div class="sticker heart1">💗</div>
+                <div class="sticker heart2">💞</div>
+
+                <h2>My Love 💕</h2>
+                <p>
+                    <!-- ✏️ PUT YOUR MESSAGE HERE -->
+                    This is where your heartfelt message goes.
+                    You can write anything you want here—sweet,
+                    romantic, or silly.  
+                    <br><br>
+                    Happy Valentine’s Day! 💌
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const card = document.getElementById("card");
+
+    card.addEventListener("click", () => {
+        card.classList.toggle("open");
+    });
+</script>
+
+</body>
+</html>
